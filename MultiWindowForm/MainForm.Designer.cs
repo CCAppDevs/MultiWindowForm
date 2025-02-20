@@ -36,6 +36,7 @@
             phoneNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             customerBindingSource = new BindingSource(components);
+            btnEdit = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
             SuspendLayout();
@@ -92,14 +93,25 @@
             // 
             customerBindingSource.DataSource = typeof(Customer);
             // 
-            // Form1
+            // btnEdit
+            // 
+            btnEdit.Location = new Point(575, 12);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(98, 23);
+            btnEdit.TabIndex = 2;
+            btnEdit.Text = "Edit Customer";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnEdit);
             Controls.Add(dgvCustomers);
             Controls.Add(btnNew);
-            Name = "Form1";
+            Name = "MainForm";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).EndInit();
@@ -115,5 +127,6 @@
         private DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private BindingSource customerBindingSource;
+        private Button btnEdit;
     }
 }
