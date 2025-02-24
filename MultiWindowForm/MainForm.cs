@@ -38,6 +38,11 @@ namespace MultiWindowForm
             ReloadDataGrid();
         }
 
+        public void EditCustomer(int id, Customer updatedCustomer)
+        {
+            MessageBox.Show("Mainform is editing the customer now.");
+        }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
             // get the row out of the data grid view
@@ -51,6 +56,8 @@ namespace MultiWindowForm
 
             // load the customer into the form
             _customerForm.LoadCustomer(cust);
+
+            _customerForm.ToggleEdit(true);
 
             // show the form
             _customerForm.Show();
