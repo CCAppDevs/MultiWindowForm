@@ -62,8 +62,10 @@
             dgvCustomers.Location = new Point(12, 48);
             dgvCustomers.MultiSelect = false;
             dgvCustomers.Name = "dgvCustomers";
+            dgvCustomers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCustomers.Size = new Size(776, 390);
             dgvCustomers.TabIndex = 1;
+            dgvCustomers.CellContentClick += dgvCustomers_CellContentClick;
             // 
             // customerIdDataGridViewTextBoxColumn
             // 

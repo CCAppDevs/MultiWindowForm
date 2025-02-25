@@ -15,6 +15,7 @@ namespace MultiWindowForm
         private MainForm _mainForm;
         private int CustomerCount;
         private bool IsEditing;
+        private int CurrentSelectionId;
 
         public NewCustomerForm(MainForm form)
         {
@@ -22,14 +23,12 @@ namespace MultiWindowForm
             _mainForm = form;
             CustomerCount = 1;
             IsEditing = false;
+            CurrentSelectionId = -1;
         }
 
         public void ToggleEdit(bool newState)
         {
             IsEditing = newState;
-
-            // tell the main form what our customer looks like
-            _mainForm.EditCustomer(0, new Customer());
         }
 
         private void CreateCustomer()
@@ -53,6 +52,18 @@ namespace MultiWindowForm
         private void EditCustomer()
         {
             MessageBox.Show("Form is being edited.");
+
+            // tell the main form what our customer looks like
+            _mainForm.EditCustomer(CurrentSelectionId, new Customer
+            {
+                CustomerId = CurrentSelectionId,
+                Name = txtName.Text,
+                PhoneNumber = txtPhoneNumber.Text,
+                Email = txtEmail.Text,
+            });
+
+            CurrentSelectionId = -1;
+            ToggleEdit(false);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -86,6 +97,7 @@ namespace MultiWindowForm
 
         public void LoadCustomer(Customer customer)
         {
+            CurrentSelectionId = customer.CustomerId;
             txtName.Text = customer.Name;
             txtEmail.Text = customer.Email;
             txtPhoneNumber.Text = customer.PhoneNumber;
