@@ -34,6 +34,11 @@ namespace MultiWindowForm
         private void CreateCustomer()
         {
             // validation
+            if (!CheckValidity())
+            {
+                // show an error
+                // return and try again
+            }
 
             // create a customer and load it with the data from the form
             Customer customer = new Customer
@@ -49,8 +54,20 @@ namespace MultiWindowForm
             CustomerCount++;
         }
 
+        private bool CheckValidity()
+        {
+            // some logic here to validate the various inputs
+
+            
+            bool somevalue = true; // set this to the validity of the form
+            return somevalue;
+        }
+
         private void EditCustomer()
         {
+            // validators here, exit early if invalid
+
+
             MessageBox.Show("Form is being edited.");
 
             // tell the main form what our customer looks like
